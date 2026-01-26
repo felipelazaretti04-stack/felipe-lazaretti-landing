@@ -8,18 +8,19 @@ export default function ProjectsGrid() {
       {projects.map((p) => (
         <div
           key={p.title}
-          className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-soft"
+          className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow"
         >
-          <div className="relative aspect-[16/10] w-full">
+          <div className="relative aspect-[16/10] w-full overflow-hidden">
             <Image
               src={p.image}
               alt={p.title}
               fill
-              className="object-cover"
+              className="object-cover transition duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none"
               sizes="(max-width: 1024px) 100vw, 33vw"
               priority={false}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent transition duration-500 group-hover:from-black/65 group-hover:via-black/15 motion-reduce:transition-none" />
           </div>
 
           <div className="p-5">
@@ -34,7 +35,7 @@ export default function ProjectsGrid() {
                   href={p.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-black/30 px-2 py-1 text-xs text-white/80 hover:bg-black/40"
+                  className="inline-flex items-center gap-1 rounded-lg border border-white/15 bg-black/30 px-2 py-1 text-xs text-white/80 transition hover:bg-black/40 focus:outline-none focus:ring-2 focus:ring-blue-400/40"
                 >
                   Ver <Icon name="arrow" className="h-4 w-4" />
                 </a>

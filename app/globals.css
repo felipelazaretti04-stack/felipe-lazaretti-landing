@@ -11,6 +11,16 @@ body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: radial-gradient(1200px 600px at 20% 10%, rgba(59, 130, 246, 0.16), transparent 60%),
     radial-gradient(900px 500px at 80% 0%, rgba(16, 185, 129, 0.14), transparent 55%),

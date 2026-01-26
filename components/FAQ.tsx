@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Icon from "@/components/Icon";
 
 type Item = { q: string; a: string };
@@ -36,39 +37,57 @@ export default function FAQ() {
     []
   );
 
+  const reduceMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <div className="mx-auto max-w-3xl divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-soft">
       {items.map((it, idx) => {
         const open = openIndex === idx;
+
         return (
-          <button
-            key={it.q}
-            onClick={() => setOpenIndex(open ? null : idx)}
-            className="w-full p-5 text-left"
-            aria-expanded={open}
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div>
+          <div key={it.q}>
+            <button
+              onClick={() => setOpenIndex(open ? null : idx)}
+              className="w-full p-5 text-left"
+              aria-expanded={open}
+            >
+              <div className="flex items-start justify-between gap-4">
                 <div className="text-sm font-semibold text-white">{it.q}</div>
-                {open && (
-                  <div className="mt-2 text-sm leading-relaxed text-white/70">
+
+                <span
+                  className={[
+                    "mt-0.5 grid h-8 w-8 flex-none place-items-center rounded-lg border border-white/10 bg-black/20 transition",
+                    open ? "rotate-180" : "rotate-0"
+                  ].join(" ")}
+                  aria-hidden="true"
+                >
+                  <Icon name="chev" className="h-4 w-4 text-white/75" />
+                </span>
+              </div>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {open && (
+                <motion.div
+                  key="content"
+                  initial={reduceMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
+                  animate={reduceMotion ? { opacity: 1 } : { height: "auto", opacity: 1 }}
+                  exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
+                  }
+                  className="overflow-hidden px-5 pb-5"
+                >
+                  <div className="text-sm leading-relaxed text-white/70">
                     {it.a}
                   </div>
-                )}
-              </div>
-              <span
-                className={[
-                  "mt-0.5 grid h-8 w-8 flex-none place-items-center rounded-lg border border-white/10 bg-black/20 transition",
-                  open ? "rotate-180" : "rotate-0"
-                ].join(" ")}
-                aria-hidden="true"
-              >
-                <Icon name="chev" className="h-4 w-4 text-white/75" />
-              </span>
-            </div>
-          </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         );
       })}
     </div>
