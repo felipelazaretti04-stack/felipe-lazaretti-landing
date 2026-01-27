@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/components/Navbar";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
@@ -303,8 +304,7 @@ export default function Page() {
         <footer className="border-t border-white/10 py-10">
           <Container className="flex flex-col items-center justify-between gap-3 sm:flex-row">
             <p className="text-sm text-white/60">
-              © {new Date().getFullYear()} Felipe Lazaretti. Todos os direitos
-              reservados.
+              © 2026 Felipe Lazaretti. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-4 text-sm">
               <a className="text-white/70 hover:text-white" href="#servicos">
