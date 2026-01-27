@@ -14,7 +14,6 @@ const links = [
 ];
 
 function AvatarFallback() {
-  // Placeholder leve (sem request de rede) caso /public/avatar.jpg não exista.
   return (
     <svg
       viewBox="0 0 24 24"
@@ -43,8 +42,6 @@ export default function Navbar() {
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
-    // IntersectionObserver é leve e não precisa de libs.
-    // Ajuste de rootMargin ajuda a “ativar” a seção quando ela entra no topo.
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -53,15 +50,15 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // pega a entrada com maior interseção e define como ativa
         const visible = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0))[0];
+          .sort(
+            (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0)
+          )[0];
 
         if (visible?.target?.id) setActiveId(visible.target.id);
       },
       {
-        root: null,
         threshold: reduceMotion ? [0.25] : [0.2, 0.35, 0.5],
         rootMargin: "-20% 0px -70% 0px"
       }
@@ -74,7 +71,6 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
-        {/* Avatar + Nome (link para #topo) */}
         <a href="#topo" className="group inline-flex items-center gap-3">
           <span
             className={[

@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useMemo, useRef, useState } from "react";
 import Icon from "@/components/Icon";
 
 type Item = { q: string; a: string };
@@ -37,19 +36,21 @@ export default function FAQ() {
     []
   );
 
-  const reduceMotion = useReducedMotion();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   return (
     <div className="mx-auto max-w-3xl divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-soft">
       {items.map((it, idx) => {
         const open = openIndex === idx;
+        const contentEl = contentRefs.current[idx];
+        const maxH = open ? `${contentEl?.scrollHeight ?? 0}px` : "0px";
 
         return (
           <div key={it.q}>
             <button
               onClick={() => setOpenIndex(open ? null : idx)}
-              className="w-full p-5 text-left"
+              className="w-full p-5 text-left focus:outline-none focus:ring-2 focus:ring-blue-400/40"
               aria-expanded={open}
             >
               <div className="flex items-start justify-between gap-4">
@@ -67,26 +68,21 @@ export default function FAQ() {
               </div>
             </button>
 
-            <AnimatePresence initial={false}>
-              {open && (
-                <motion.div
-                  key="content"
-                  initial={reduceMotion ? { opacity: 1 } : { height: 0, opacity: 0 }}
-                  animate={reduceMotion ? { opacity: 1 } : { height: "auto", opacity: 1 }}
-                  exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                  transition={
-                    reduceMotion
-                      ? { duration: 0 }
-                      : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
-                  }
-                  className="overflow-hidden px-5 pb-5"
-                >
-                  <div className="text-sm leading-relaxed text-white/70">
-                    {it.a}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div
+              data-accordion-content
+              style={{ maxHeight: maxH, opacity: open ? 1 : 0 }}
+              className="px-5"
+              aria-hidden={!open}
+            >
+              <div
+                ref={(el) => {
+                  contentRefs.current[idx] = el;
+                }}
+                className="pb-5 text-sm leading-relaxed text-white/70"
+              >
+                {it.a}
+              </div>
+            </div>
           </div>
         );
       })}
