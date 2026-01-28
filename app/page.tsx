@@ -6,6 +6,8 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import FAQ from "@/components/FAQ";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 import Icon from "@/components/Icon";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+
 
 const WHATSAPP_URL = "https://wa.me/5554997033416";
 
@@ -55,9 +57,10 @@ export default function Page() {
                 style={{ animationDelay: "260ms" }}
               >
                 <Button href={WHATSAPP_URL} variant="primary">
-                  <Icon name="whatsapp" className="h-5 w-5" />
+                  <WhatsAppIcon className="h-5 w-5" />
                   Chamar no WhatsApp
                 </Button>
+
 
                 <Button href="#projetos" variant="ghost">
                   Ver projetos
@@ -217,9 +220,10 @@ export default function Page() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={WHATSAPP_URL} variant="primary">
-              <Icon name="whatsapp" className="h-5 w-5" />
+              <WhatsAppIcon className="h-5 w-5" />
               Pedir orçamento no Whats
             </Button>
+
             <p className="text-sm text-white/65">
               Condição padrão: <span className="text-white/85">50% início / 50% entrega</span>.
             </p>
@@ -258,9 +262,10 @@ export default function Page() {
 
               <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                 <Button href={WHATSAPP_URL} variant="primary">
-                  <Icon name="whatsapp" className="h-5 w-5" />
+                  <WhatsAppIcon className="h-5 w-5" />
                   Chamar no WhatsApp
                 </Button>
+
                 <Button href="#projetos" variant="ghost">
                   Ver projetos
                   <Icon name="arrow" className="h-5 w-5" />
@@ -278,7 +283,7 @@ export default function Page() {
                 Troque este e-mail no código:
               </p>
               <p className="mt-1 break-all rounded-xl border border-white/10 bg-black/30 p-3 text-sm text-white/85">
-                seuemail@exemplo.com
+                felipelazaretti00@gmail.com
               </p>
 
               <p className="mt-4 text-sm text-white/70">

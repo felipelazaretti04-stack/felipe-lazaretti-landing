@@ -6,7 +6,7 @@ const siteDescription =
   "Sites profissionais, rápidos e sob medida. Design limpo, copy clara e presença online forte. Atendimento para todo o Brasil.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"), // troque quando tiver domínio
+  metadataBase: new URL("https://felipe-lazaretti-landing.vercel.app"), // troque quando tiver domínio
   title: {
     default: `${siteName} — Sites profissionais`,
     template: `%s — ${siteName}`
