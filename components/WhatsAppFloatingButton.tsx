@@ -1,5 +1,7 @@
 // file: components/WhatsAppFloatingButton.tsx
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import WhatsAppFA from "@/components/icons/WhatsAppFA";
+
 
 export default function WhatsAppFloatingButton({ href }: { href: string }) {
   return (
@@ -18,7 +20,7 @@ export default function WhatsAppFloatingButton({ href }: { href: string }) {
       aria-label="Chamar no WhatsApp"
       style={{ animationDelay: "200ms" }}
     >
-      <WhatsAppIcon className="h-5 w-5" />
+      <WhatsAppFA className="text-[20px]" />
       WhatsApp
     </a>
   );

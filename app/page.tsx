@@ -7,6 +7,8 @@ import FAQ from "@/components/FAQ";
 import WhatsAppFloatingButton from "@/components/WhatsAppFloatingButton";
 import Icon from "@/components/Icon";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import WhatsAppFA from "@/components/icons/WhatsAppFA";
+
 
 
 const WHATSAPP_URL = "https://wa.me/5554997033416";
@@ -57,7 +59,7 @@ export default function Page() {
                 style={{ animationDelay: "260ms" }}
               >
                 <Button href={WHATSAPP_URL} variant="primary">
-                  <WhatsAppIcon className="h-5 w-5" />
+                  <WhatsAppFA className="text-[20px]" />
                   Chamar no WhatsApp
                 </Button>
 
@@ -220,7 +222,7 @@ export default function Page() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={WHATSAPP_URL} variant="primary">
-              <WhatsAppIcon className="h-5 w-5" />
+             <WhatsAppFA className="text-[20px]" /> 
               Pedir orçamento no Whats
             </Button>
 
@@ -262,7 +264,7 @@ export default function Page() {
 
               <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                 <Button href={WHATSAPP_URL} variant="primary">
-                  <WhatsAppIcon className="h-5 w-5" />
+                  <WhatsAppFA className="text-[20px]" />
                   Chamar no WhatsApp
                 </Button>
 
