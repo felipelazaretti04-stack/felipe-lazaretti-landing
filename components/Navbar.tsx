@@ -1,3 +1,4 @@
+// file: components/Navbar.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -31,9 +32,37 @@ function AvatarFallback() {
   );
 }
 
+function HamburgerIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      {open ? (
+        <>
+          <path d="M6 6l12 12" />
+          <path d="M18 6L6 18" />
+        </>
+      ) : (
+        <>
+          <path d="M4 7h16" />
+          <path d="M4 12h16" />
+          <path d="M4 17h16" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [imgError, setImgError] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const ids = useMemo(() => links.map((l) => l.id), []);
 
@@ -67,6 +96,28 @@ export default function Navbar() {
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, [ids]);
+
+  // Fecha menu com ESC
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
+  // Trava scroll quando menu abre (leve)
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
+
+  const close = () => setMobileOpen(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur">
@@ -102,6 +153,7 @@ export default function Navbar() {
           </span>
         </a>
 
+        {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((l) => {
             const isActive = activeId === l.id;
@@ -114,7 +166,7 @@ export default function Navbar() {
                   "focus:outline-none focus:ring-2 focus:ring-blue-400/40",
                   isActive
                     ? "text-white bg-white/8 border border-white/10"
-                    : "text-white/70 hover:text-white hover:bg-white/5"
+                    : "text-white/70 hover:text-white hover:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur"
                 ].join(" ")}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -124,13 +176,72 @@ export default function Navbar() {
           })}
         </nav>
 
-        <a
-          href="#contato"
-          className="rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm font-medium text-white transition hover:bg-white/8 focus:outline-none focus:ring-2 focus:ring-blue-400/40"
-        >
-          Orçamento
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            href="#contato"
+            className="rounded-xl border border-white/15 bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur px-3 py-2 text-sm font-medium text-white transition hover:bg-white/8 focus:outline-none focus:ring-2 focus:ring-blue-400/40"
+          >
+            Orçamento
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            className="md:hidden rounded-xl border border-white/15 bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur p-2 text-white transition hover:bg-white/8 focus:outline-none focus:ring-2 focus:ring-blue-400/40"
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            <HamburgerIcon open={mobileOpen} />
+          </button>
+        </div>
       </Container>
+
+      {/* Mobile overlay + panel */}
+      {mobileOpen && (
+        <div className="md:hidden">
+          <button
+            aria-label="Fechar menu"
+            onClick={close}
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+          />
+
+          <div className="fixed left-0 right-0 top-16 z-50 border-b border-white/10 bg-black/70 backdrop-blur">
+            <Container className="py-3">
+              <div className="grid gap-1">
+                {links.map((l) => {
+                  const isActive = activeId === l.id;
+                  return (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      onClick={close}
+                      className={[
+                        "rounded-xl px-4 py-3 text-sm transition",
+                        "focus:outline-none focus:ring-2 focus:ring-blue-400/40",
+                        isActive
+                          ? "text-white bg-white/8 border border-white/10"
+                          : "text-white/80 hover:text-white hover:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur"
+                      ].join(" ")}
+                    >
+                      {l.label}
+                    </a>
+                  );
+                })}
+                <a
+                  href="#topo"
+                  onClick={close}
+                  className="rounded-xl px-4 py-3 text-sm text-white/70 hover:text-white hover:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur transition focus:outline-none focus:ring-2 focus:ring-blue-400/40"
+                >
+                  Voltar ao topo
+                </a>
+              </div>
+            </Container>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
+
+

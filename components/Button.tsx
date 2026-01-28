@@ -17,7 +17,7 @@ export default function Button({
   const styles =
     variant === "primary"
       ? "bg-white text-black hover:bg-white/90"
-      : "border border-white/15 bg-white/5 text-white hover:bg-white/8";
+      : "border border-white/15 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur text-white hover:bg-white/8";
 
   const external = href.startsWith("http");
 
@@ -32,3 +32,6 @@ export default function Button({
     </Comp>
   );
 }
+
+
+

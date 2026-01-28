@@ -28,7 +28,7 @@ export default function Page() {
           <Container className="py-20 sm:py-24">
             <div className="mx-auto max-w-3xl text-center">
               <div
-                className="animate-fadeUp inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-white/80 shadow-soft motion-reduce:animate-none"
+                className="animate-fadeUp inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur px-3 py-1 text-sm text-white/80 shadow-soft motion-reduce:animate-none"
                 style={{ animationDelay: "40ms" }}
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -69,7 +69,7 @@ export default function Page() {
                 className="animate-fadeUp mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3 motion-reduce:animate-none"
                 style={{ animationDelay: "320ms" }}
               >
-                <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 text-left shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
+                <div className="group rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-4 text-left shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
                   <div className="flex items-center gap-2 text-white">
                     <Icon name="spark" className="h-5 w-5 text-blue-300" />
                     <span className="font-medium">Visual premium</span>
@@ -80,7 +80,7 @@ export default function Page() {
                   </p>
                 </div>
 
-                <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 text-left shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
+                <div className="group rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-4 text-left shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
                   <div className="flex items-center gap-2 text-white">
                     <Icon name="clock" className="h-5 w-5 text-emerald-300" />
                     <span className="font-medium">
@@ -93,7 +93,7 @@ export default function Page() {
                   </p>
                 </div>
 
-                <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 text-left shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
+                <div className="group rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-4 text-left shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
                   <div className="flex items-center gap-2 text-white">
                     <Icon name="bolt" className="h-5 w-5 text-indigo-300" />
                     <span className="font-medium">
@@ -244,7 +244,7 @@ export default function Page() {
           subtitle="Me chama no WhatsApp com seu nicho e o que você quer vender/atrair. Eu retorno com um plano de ataque."
         >
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft transition hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none lg:col-span-2">
+            <div className="rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-6 shadow-soft transition hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none lg:col-span-2">
               <h3 className="text-lg font-semibold text-white">
                 Atendimento direto, rápido e objetivo
               </h3>
@@ -268,7 +268,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft transition hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
+            <div className="rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-6 shadow-soft transition hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
               <div className="flex items-center gap-2 text-white">
                 <Icon name="mail" className="h-5 w-5 text-white/80" />
                 <h3 className="text-lg font-semibold">E-mail</h3>
@@ -323,7 +323,7 @@ function ServiceCard({
   icon: Parameters<typeof Icon>[0]["name"];
 }) {
   return (
-    <div className="group rounded-2xl border border-white/10 bg-white/5 p-5 shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
+    <div className="group rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-5 shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
       <div className="flex items-center gap-2 text-white">
         <div className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-black/30 transition group-hover:border-white/15">
           <Icon name={icon} className="h-5 w-5 text-white/85" />
@@ -349,7 +349,7 @@ function StepCard({
   desc: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
+    <div className="rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-6 shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none">
       <div className="flex items-center justify-between">
         <span className="text-sm font-semibold text-white/80">{step}</span>
         <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
@@ -376,7 +376,7 @@ function PlanCard({
   return (
     <div
       className={[
-        "relative rounded-2xl border bg-white/5 p-6 shadow-soft transition will-change-transform",
+        "relative rounded-2xl border bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur p-6 shadow-soft transition will-change-transform",
         "hover:-translate-y-1 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none",
         highlight ? "border-white/20" : "border-white/10 hover:border-white/15"
       ].join(" ")}
@@ -405,3 +405,6 @@ function PlanCard({
     </div>
   );
 }
+
+
+

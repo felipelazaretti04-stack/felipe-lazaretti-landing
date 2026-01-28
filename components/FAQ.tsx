@@ -40,7 +40,7 @@ export default function FAQ() {
   const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
 
   return (
-    <div className="mx-auto max-w-3xl divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-soft">
+    <div className="mx-auto max-w-3xl divide-y divide-white/10 overflow-hidden rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur shadow-soft">
       {items.map((it, idx) => {
         const open = openIndex === idx;
         const contentEl = contentRefs.current[idx];
@@ -89,3 +89,6 @@ export default function FAQ() {
     </div>
   );
 }
+
+
+

@@ -8,7 +8,7 @@ export default function ProjectsGrid() {
       {projects.map((p) => (
         <div
           key={p.title}
-          className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none"
+          className="group overflow-hidden rounded-2xl border border-white/10 bg-black/40 sm:bg-black/40 sm:bg-black/40 sm:bg-white/5 backdrop-blur backdrop-blur backdrop-blur shadow-soft transition will-change-transform hover:-translate-y-1 hover:border-white/15 hover:bg-white/7 hover:shadow-glow motion-reduce:transform-none"
         >
           <div className="relative aspect-[16/10] w-full overflow-hidden">
             <Image
@@ -54,3 +54,6 @@ export default function ProjectsGrid() {
     </div>
   );
 }
+
+
+
