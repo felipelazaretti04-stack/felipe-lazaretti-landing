@@ -2,17 +2,23 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
+const sizeMap = {
+  sm: "text-[16px]",
+  md: "text-[18px]",
+  lg: "text-[20px]"
+} as const;
+
 export default function WhatsAppFA({
-  className = "h-5 w-5"
+  size = "sm",
+  className = ""
 }: {
+  size?: keyof typeof sizeMap;
   className?: string;
 }) {
-  // FontAwesomeIcon usa `style` pra tamanho; vamos mapear Tailwind -> em
   return (
     <FontAwesomeIcon
       icon={faWhatsapp}
-      className={className}
-      // garante que pega a cor do texto (premium)
+      className={[sizeMap[size], "leading-none", className].join(" ")}
       style={{ color: "currentColor" }}
       aria-hidden="true"
     />

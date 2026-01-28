@@ -59,7 +59,7 @@ export default function Page() {
                 style={{ animationDelay: "260ms" }}
               >
                 <Button href={WHATSAPP_URL} variant="primary">
-                  <WhatsAppFA className="text-[20px]" />
+                  <WhatsAppFA size="sm" />
                   Chamar no WhatsApp
                 </Button>
 
@@ -222,7 +222,7 @@ export default function Page() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={WHATSAPP_URL} variant="primary">
-             <WhatsAppFA className="text-[20px]" /> 
+             <WhatsAppFA size="sm" /> 
               Pedir orçamento no Whats
             </Button>
 
@@ -264,7 +264,7 @@ export default function Page() {
 
               <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                 <Button href={WHATSAPP_URL} variant="primary">
-                  <WhatsAppFA className="text-[20px]" />
+                 <WhatsAppFA size="sm" /> 
                   Chamar no WhatsApp
                 </Button>
 
