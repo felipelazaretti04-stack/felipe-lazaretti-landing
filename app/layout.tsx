@@ -1,5 +1,7 @@
+// file: app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "./providers";
 
 const siteName = "Felipe Lazaretti";
 const siteDescription =
@@ -37,10 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
-
-
-
