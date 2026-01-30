@@ -11,7 +11,8 @@ import WhatsAppFA from "@/components/icons/WhatsAppFA";
 
 
 
-const WHATSAPP_URL = "https://wa.me/5554997033416";
+const WHATSAPP_URL =
+  "https://wa.me/5554997033416?text=Oi%20Felipe!%20Vim%20atrav%C3%A9s%20do%20seu%20site%20e%20quero%20pedir%20um%20or%C3%A7amento.";
 
 export default function Page() {
   return (
@@ -144,8 +145,7 @@ export default function Page() {
         <Section
           id="projetos"
           eyebrow="Projetos"
-          title="Alguns trabalhos e demos"
-          subtitle="Itens vindos de um arquivo local: edite em /data/projects.ts."
+          title="Alguns trabalhos e Projetos"
         >
           <ProjectsGrid />
         </Section>
