@@ -15,6 +15,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* file: app/globals.css */
+.input {
+  @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/40 outline-none focus:border-white/25;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-black font-medium hover:bg-white/90 transition;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

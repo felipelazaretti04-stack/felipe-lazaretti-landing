@@ -21,11 +21,5 @@ export const projects: Project[] = [
     image: "/projects/realpapelaria.jpg",
     url: "https://realpapelaria.page.gd/"
   },
-  {
-    title: "Projeto Demo 3",
-    niche: "Marca pessoal",
-    description:
-      "Portfólio moderno com navegação por âncoras, performance e SEO básico.",
-    image: "https://picsum.photos/seed/felipe-lz/1400/900"
-  }
+
 ];

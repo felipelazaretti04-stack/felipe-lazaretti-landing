@@ -281,9 +281,6 @@ export default function Page() {
                 <h3 className="text-lg font-semibold">E-mail</h3>
               </div>
 
-              <p className="mt-2 text-sm text-white/70">
-                Troque este e-mail no código:
-              </p>
               <p className="mt-1 break-all rounded-xl border border-white/10 bg-black/30 p-3 text-sm text-white/85">
                 felipelazaretti00@gmail.com
               </p>
