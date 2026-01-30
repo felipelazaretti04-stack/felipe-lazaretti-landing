@@ -11,7 +11,7 @@ export const projects: Project[] = [
     title: "Dorigon Panetteria",
     niche: "Panificadora / Alimentação",
     description: "Site institucional com visual premium, foco em presença e contato.",
-    image: "/projects/doriganpanetteria.jpg",
+    image: "/projects/doriganpanetteria.jpeg",
     url: "https://dorigonpanetteria.com/"
   },
   {
