@@ -22,4 +22,26 @@ export const projects: Project[] = [
     url: "https://realpapelaria.page.gd/"
   },
 
+  {
+    title: "Leo Barber Shop",
+    niche: "Barbearia / Identidade Visual",
+    description: "Site institucional para barbearia com agendamento e galeria.",
+    image: "/projects/leo.jpg",
+    url: "https://leo-barber-shop.vercel.app/",
+  },
+  {
+    title: "Lendas da Velocidade",
+    niche: "Landing / Automotive",
+    description: "Landing imersiva sobre supercarros com navegação por seções.",
+    image: "/projects/lendas-da-velocidade.png",
+    url: "https://lendas-da-velocidade.vercel.app/",
+  },
+  {
+    title: "Loja Pro",
+    niche: "E-commerce",
+    description: "Loja online com catálogo e checkout integrado.",
+    image: "/projects/loja-pro.png",
+    url: "https://cuias-lazaretti.vercel.app/",
+  },
+
 ];
